@@ -35,3 +35,13 @@
     font-size: 1.5rem;
     font-weight: 900;
   }
+
+
+@media screen and (max-width: 768px) {
+    .responsiv {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  

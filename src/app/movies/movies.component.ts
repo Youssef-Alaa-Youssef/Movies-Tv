@@ -21,6 +21,7 @@ export class MoviesComponent implements OnInit {
 
 pagination(page: number): void {
   this.spinner = true;
+  console.log(page)
 
   this.coursesService.moviesPagination(page).subscribe(date=>{
     this.Movies = date.results;
