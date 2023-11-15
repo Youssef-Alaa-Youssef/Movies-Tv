@@ -1,0 +1,36 @@
+.custom-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto; 
+  }
+  .action-btns {
+    display: flex;
+    margin-top: 20px;
+    gap: 0.5rem;
+  }
+  
+  .verify {
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--night-rider);
+    text-shadow: none;
+    background: var(--af-white);
+    box-shadow: transparent;
+    border: 1px solid var(--af-white);
+    transition: 0.3s ease;
+    user-select: none;
+  }
+  
+  .verify:hover,.verify:focus {
+    color: var(--night-rider);
+    background: var(--white);
+  }
+  .title {
+    font-size: 1.5rem;
+    font-weight: 900;
+  }
