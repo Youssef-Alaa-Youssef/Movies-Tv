@@ -1,0 +1,18 @@
+.checked {
+    color: gold;
+  }
+  .no-movies-container {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .no-movies-message {
+    font-size: 2.4rem;
+    color: #fff;
+    animation: fadeIn 1s ease-out;
+  }
+  
+
+  

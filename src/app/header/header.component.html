@@ -1,0 +1,22 @@
+<owl-carousel-o class="mt-4">
+    <ng-container *ngFor="let movie of headerMoviesOWL">
+      <ng-template carouselSlide [id]="movie.id">
+        <div class="movie-item">
+          <img
+            *ngIf="movie.poster_path !== null; else defaultImage"
+            [src]="baseImage + movie.poster_path"
+            alt="{{ movie.title }}"
+          />
+  
+          <ng-template #defaultImage>
+            <img
+              src="../../assets/defualtImage.jpg"
+              class="default-image"
+              alt="{{ movie.title }}"
+            />
+          </ng-template>
+        </div>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+  

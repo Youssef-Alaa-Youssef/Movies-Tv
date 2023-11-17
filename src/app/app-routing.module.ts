@@ -11,20 +11,27 @@ import { MoviesComponent } from './movies/movies.component';
 import { ChangepassworsComponent } from './changepasswors/changepasswors.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RatingComponent } from './rating/rating.component';
+import { SearchComponent } from './search/search.component';
+import { AuthGuard } from './auth.guard';
+import { TopMoviesComponent } from './top-movies/top-movies.component';
+import { TopTvComponent } from './top-tv/top-tv.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/movies', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'profile',canActivate:[AuthGuard], component: ProfileComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'notify', component: NotificationsComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'top-movies', component: TopMoviesComponent },
+  { path: 'top-tv', component: TopTvComponent },
+  { path: 'notify', canActivate:[AuthGuard], component: NotificationsComponent },
+  { path: 'profile',canActivate:[AuthGuard], component: ProfileComponent },
   { path: 'movies', component: MoviesComponent },
-  { path: 'details/:id', component: DetailsComponent },
-  { path: 'rate', component: RatingComponent },
-
+  { path: 'details/:id/:type',canActivate:[AuthGuard], component: DetailsComponent },
+  { path: 'rate',canActivate:[AuthGuard], component: RatingComponent },
+  { path: 'search/:search', component: SearchComponent },
   { path: 'settings', component: SettingsComponent },
-  { path: 'change-password', component: ChangepassworsComponent },
-  { path: 'two-step-verification', component: TwostepverificationComponent },
+  { path: 'change-password', canActivate:[AuthGuard],component: ChangepassworsComponent },
+  { path: 'two-step-verification', canActivate:[AuthGuard],component: TwostepverificationComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

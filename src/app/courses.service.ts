@@ -22,9 +22,20 @@ export class CoursesService {
       }
     );
   }
-  getMovie(id: number): Observable<any> {
+  displayTV(): Observable<any> {
     return this._HttpClient.get(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=fe7540e520117a8f4574cb44fe9259de`,
+      'https://api.themoviedb.org/3/tv/popular?api_key=fe7540e520117a8f4574cb44fe9259de',
+      {
+        headers: {
+          Accept: 'application/json',
+          Authorization: 'Bearer ' + environment.apiToken,
+        },
+      }
+    );
+  }
+  getMovie(id: string,type:string): Observable<any> {
+    return this._HttpClient.get(
+      `https://api.themoviedb.org/3/${type}/${id}?api_key=fe7540e520117a8f4574cb44fe9259de`,
       {
         headers: {
           Accept: 'application/json',
@@ -42,6 +53,18 @@ export class CoursesService {
         headers: {
           Accept: 'application/json',
           Authorization: 'Bearer ' + environment.apiToken,
+        },
+      }
+    );
+  }
+
+  seachMovie(search: string): Observable<any> {
+    return this._HttpClient.get(
+      `https://api.themoviedb.org/3/search/movie?api_key=fe7540e520117a8f4574cb44fe9259de&language=en-US&query=${search}`,
+      {
+        headers: {
+          Accept: 'application/json',
+          Authorization: 'Bearer' + environment.apiToken,
         },
       }
     );

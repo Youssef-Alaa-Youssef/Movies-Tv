@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CoursesService } from '../courses.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-movies',
@@ -10,18 +11,25 @@ export class MoviesComponent implements OnInit {
   Movies: any[] = [];
   baseImage: string = '';
   spinner: boolean = false;
+  isLogin:boolean = false;
   page:number = 1;
-  constructor(private coursesService: CoursesService) {
+  constructor(private coursesService: CoursesService,private _aAuthService:AuthService) {
     this.baseImage = this.coursesService.baseImage;
   }
 
   ngOnInit(): void {
     this.pagination(this.page);
+    this._aAuthService.userData.subscribe(() => {
+      if (this._aAuthService.userData.value != null) {
+        this.isLogin = true;
+      } else {
+        this.isLogin = false;
+      }
+    });
   }
 
 pagination(page: number): void {
   this.spinner = true;
-  console.log(page)
 
   this.coursesService.moviesPagination(page).subscribe(date=>{
     this.Movies = date.results;
