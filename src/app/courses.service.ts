@@ -35,7 +35,7 @@ export class CoursesService {
   }
 
   moviesPagination(page: number): Observable<any> {
-    page = Math.max(page,1);
+    page = Math.max(page, 1);
     return this._HttpClient.get(
       `https://api.themoviedb.org/3/movie/popular?page=${page}&api_key=fe7540e520117a8f4574cb44fe9259de`,
       {
