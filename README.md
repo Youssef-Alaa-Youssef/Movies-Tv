@@ -24,15 +24,15 @@ Make sure you have the following installed on your machine:
 ### Navigate to the project folder:
    ```bash
       cd Movies-Tv
-
+```
 ### Install dependencies:
    ```bash
     npm install
-
+```
 ### Development server
 ## Run the following command for a development server:
    ```bash
     ng serve
-
+```
 
 
