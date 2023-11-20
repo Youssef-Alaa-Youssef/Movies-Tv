@@ -24,7 +24,6 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { HeaderComponent } from './header/header.component';
 import { TopMoviesComponent } from './top-movies/top-movies.component';
 import { TopTvComponent } from './top-tv/top-tv.component';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 export function createTranslateLoader(http: HttpClient) {
