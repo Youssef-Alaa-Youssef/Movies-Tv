@@ -20,7 +20,7 @@ Make sure you have the following installed on your machine:
 
    ```bash
    git clone https://github.com/Youssef-Alaa-Youssef/Movies-Tv.git
-   
+   ```
 ### Navigate to the project folder:
    ```bash
       cd Movies-Tv
