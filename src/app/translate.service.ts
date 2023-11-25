@@ -8,7 +8,7 @@ export class TranslateService {
   constructor(private translate: TranslateService) {}
 
   switchLanguage(language: string): void {
-    this.translate.use(language);
+    this.translate.switchLanguage('en')
   }}
 
 

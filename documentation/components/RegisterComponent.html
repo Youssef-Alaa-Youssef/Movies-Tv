@@ -119,27 +119,233 @@
     </table>
 </section>
 
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#registerForm" >registerForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
 
 
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/register/register.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
 
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">src/app/register/register.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerForm"></a>
+                    <span class="name">
+                        <span ><b>registerForm</b></span>
+                        <a href="#registerForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({
+    firstName: new FormControl(null, [
+      Validators.required,
+      Validators.maxLength(20),
+    ]),
+    lastName: new FormControl(null, [
+      Validators.required,
+      Validators.maxLength(20),
+    ]),
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl(null, [
+      Validators.required,
+      Validators.pattern(/^(?&#x3D;.*[!@#$%^&amp;*(),.?&quot;:{}|&lt;&gt;])(?&#x3D;.*[a-zA-Z])(?&#x3D;.*\d)[A-Za-z\d!@#$%^&amp;*(),.?&quot;:{}|&lt;&gt;]{8,}$/),
+    ]),
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/register/register.component.ts:11</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { FormControl, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
 
+import { Router } from &#x27;@angular/router&#x27;;
 @Component({
   selector: &#x27;app-register&#x27;,
   templateUrl: &#x27;./register.component.html&#x27;,
-  styleUrl: &#x27;./register.component.css&#x27;
+  styleUrl: &#x27;./register.component.css&#x27;,
 })
 export class RegisterComponent {
+  registerForm: FormGroup &#x3D; new FormGroup({
+    firstName: new FormControl(null, [
+      Validators.required,
+      Validators.maxLength(20),
+    ]),
+    lastName: new FormControl(null, [
+      Validators.required,
+      Validators.maxLength(20),
+    ]),
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl(null, [
+      Validators.required,
+      Validators.pattern(/^(?&#x3D;.*[!@#$%^&amp;*(),.?&quot;:{}|&lt;&gt;])(?&#x3D;.*[a-zA-Z])(?&#x3D;.*\d)[A-Za-z\d!@#$%^&amp;*(),.?&quot;:{}|&lt;&gt;]{8,}$/),
+    ]),
+  });
 
+  constructor(private _router: Router) {}
+
+  onSubmit() {
+    if (this.registerForm.valid) {
+      this._router.navigate([&#x27;/login&#x27;]);
+    }
+  }
 }
 </code></pre>
     </div>
@@ -148,68 +354,81 @@ export class RegisterComponent {
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;custom-container h-100&quot;&gt;
   &lt;div class&#x3D;&quot;w-100&quot;&gt;
     &lt;div class&#x3D;&quot;form&quot;&gt;
-      &lt;form class&#x3D;&quot;form&quot;&gt;
+      &lt;form [formGroup]&#x3D;&quot;registerForm&quot; (ngSubmit)&#x3D;&#x27;onSubmit()&#x27;&gt;
         &lt;div class&#x3D;&quot;info mb-4&quot;&gt;
           &lt;span class&#x3D;&quot;title&quot;&gt;Register Now&lt;/span&gt;
           &lt;p class&#x3D;&quot;description mt-3&quot;&gt;Enter Your Info For Registration Here&lt;/p&gt;
         &lt;/div&gt;
         &lt;div class&#x3D;&quot;input-fields&quot;&gt;
           &lt;div class&#x3D;&quot;form-group p-2&quot;&gt;
+          
             &lt;label for&#x3D;&quot;firstname&quot; class&#x3D;&quot;mb-2&quot;&gt;First Name&lt;/label&gt;
             &lt;input
               type&#x3D;&quot;text&quot;
               class&#x3D;&quot;form-control&quot;
-              name&#x3D;&quot;firstname&quot;
               id&#x3D;&quot;firstname&quot;
               placeholder&#x3D;&quot;First Name&quot;
+              formControlName&#x3D;&quot;firstName&quot;
             /&gt;
-          &lt;/div&gt;
+            &lt;div *ngIf&#x3D;&quot;registerForm.controls[&#x27;firstName&#x27;]?.invalid&amp;&amp; registerForm.controls[&#x27;firstName&#x27;]?.touched&quot; class&#x3D;&quot;text-danger mt-3&quot; &gt;
+              &lt;p *ngIf&#x3D;&quot;registerForm.get(&#x27;firstName&#x27;)?.hasError(&#x27;required&#x27;)&quot;&gt;First Name is required&lt;/p&gt;
+              &lt;p *ngIf&#x3D;&quot;registerForm.get(&#x27;firstName&#x27;)?.hasError(&#x27;maxlength&#x27;)&quot;&gt;First Name must be at most 20 characters&lt;/p&gt;
+            &lt;/div&gt;
+                      &lt;/div&gt;
           &lt;div class&#x3D;&quot;form-group p-2&quot;&gt;
             &lt;label for&#x3D;&quot;lastname&quot; class&#x3D;&quot;mb-2&quot;&gt;Last Name&lt;/label&gt;
             &lt;input
               type&#x3D;&quot;text&quot;
               class&#x3D;&quot;form-control&quot;
-              name&#x3D;&quot;lastname&quot;
+              formControlName&#x3D;&quot;lastName&quot;
               id&#x3D;&quot;lastname&quot;
               placeholder&#x3D;&quot;Last Name&quot;
             /&gt;
+            &lt;div class&#x3D;&quot;text-danger mt-3&quot; *ngIf&#x3D;&quot;registerForm.controls[&#x27;lastName&#x27;]?.invalid&amp;&amp; registerForm.controls[&#x27;lastName&#x27;]?.touched&quot; &gt;
+              &lt;p *ngIf&#x3D;&quot;registerForm.get(&#x27;lastName&#x27;)?.hasError(&#x27;required&#x27;)&quot;&gt;Last Name is required&lt;/p&gt;
+              &lt;p *ngIf&#x3D;&quot;registerForm.get(&#x27;lastName&#x27;)?.hasError(&#x27;maxlength&#x27;)&quot;&gt;Last Name must be at most 20 characters&lt;/p&gt;
+              
+            &lt;/div&gt;
           &lt;/div&gt;
           &lt;div class&#x3D;&quot;form-group p-2&quot;&gt;
             &lt;label for&#x3D;&quot;email&quot; class&#x3D;&quot;mb-2&quot;&gt;E-mail&lt;/label&gt;
             &lt;input
               type&#x3D;&quot;email&quot;
               class&#x3D;&quot;form-control&quot;
-              name&#x3D;&quot;email&quot;
+              formControlName&#x3D;&quot;email&quot;
               id&#x3D;&quot;email&quot;
               placeholder&#x3D;&quot;Email&quot;
             /&gt;
+            &lt;div class&#x3D;&quot;text-danger mt-3&quot; *ngIf&#x3D;&quot;registerForm.controls[&#x27;email&#x27;]?.invalid&amp;&amp; registerForm.controls[&#x27;email&#x27;]?.touched&quot; &gt;
+              &lt;p *ngIf&#x3D;&quot;registerForm.get(&#x27;email&#x27;)?.hasError(&#x27;required&#x27;)&quot;&gt;Email is required&lt;/p&gt;
+              &lt;p *ngIf&#x3D;&quot;registerForm.get(&#x27;email&#x27;)?.hasError(&#x27;email&#x27;)&quot;&gt;Invalid email format&lt;/p&gt;
+                          &lt;/div&gt;
           &lt;/div&gt;
           &lt;div class&#x3D;&quot;form-group p-2&quot;&gt;
             &lt;label for&#x3D;&quot;pass&quot; class&#x3D;&quot;mb-2&quot;&gt;Password&lt;/label&gt;
             &lt;input
               type&#x3D;&quot;password&quot;
               class&#x3D;&quot;form-control&quot;
-              name&#x3D;&quot;pass&quot;
+              formControlName&#x3D;&quot;password&quot;
               id&#x3D;&quot;pass&quot;
               placeholder&#x3D;&quot;Password&quot;
             /&gt;
-          &lt;/div&gt;
-          &lt;div class&#x3D;&quot;form-group p-2&quot;&gt;
-            &lt;label for&#x3D;&quot;confpass&quot; class&#x3D;&quot;mb-2&quot;&gt;Confirm Password&lt;/label&gt;
-            &lt;input
-              type&#x3D;&quot;password&quot;
-              class&#x3D;&quot;form-control&quot;
-              name&#x3D;&quot;confpass&quot;
-              id&#x3D;&quot;confpass&quot;
-              placeholder&#x3D;&quot;Confirm Password&quot;
-            /&gt;
+            &lt;div class&#x3D;&quot;text-danger mt-3&quot; *ngIf&#x3D;&quot;registerForm.controls[&#x27;password&#x27;]?.invalid&amp;&amp; registerForm.controls[&#x27;password&#x27;]?.touched&quot;&gt;
+              &lt;p *ngIf&#x3D;&quot;registerForm.get(&#x27;password&#x27;)?.hasError(&#x27;required&#x27;)&quot;&gt;Password is required&lt;/p&gt;
+              &lt;p *ngIf&#x3D;&quot;registerForm.get(&#x27;password&#x27;)?.hasError(&#x27;pattern&#x27;)&quot;&gt;
+                Password must follow the specified pattern: 
+                At least 8 characters with at least &lt;br/&gt; - one special character &lt;br/&gt; - one letter (uppercase or lowercase) &lt;br/&gt; - one digit
+              &lt;/p&gt;              
+            &lt;/div&gt;
           &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class&#x3D;&quot;action-btns mt-5 responsiv&quot;&gt;
-          &lt;a class&#x3D;&quot;btn btn-outline-light responsiv&quot;&gt;Sign Up&lt;/a&gt;
+        &lt;div class&#x3D;&quot;action-btns mt-3 responsiv&quot;&gt;
+          &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-outline-light responsiv&quot; type&#x3D;&quot;submit&quot; [disabled]&#x3D;&quot;registerForm.invalid&quot; &gt;Sign Up&lt;/button&gt;
           &lt;a routerLink&#x3D;&quot;/login&quot; class&#x3D;&quot;verify responsiv&quot;&gt;Have An Account?&lt;/a&gt;
         &lt;/div&gt;
       &lt;/form&gt;
+
+
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -242,8 +461,8 @@ export class RegisterComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="custom-container h-100">  <div class="w-100">    <div class="form">      <form class="form">        <div class="info mb-4">          <span class="title">Register Now</span>          <p class="description mt-3">Enter Your Info For Registration Here</p>        </div>        <div class="input-fields">          <div class="form-group p-2">            <label for="firstname" class="mb-2">First Name</label>            <input              type="text"              class="form-control"              name="firstname"              id="firstname"              placeholder="First Name"            />          </div>          <div class="form-group p-2">            <label for="lastname" class="mb-2">Last Name</label>            <input              type="text"              class="form-control"              name="lastname"              id="lastname"              placeholder="Last Name"            />          </div>          <div class="form-group p-2">            <label for="email" class="mb-2">E-mail</label>            <input              type="email"              class="form-control"              name="email"              id="email"              placeholder="Email"            />          </div>          <div class="form-group p-2">            <label for="pass" class="mb-2">Password</label>            <input              type="password"              class="form-control"              name="pass"              id="pass"              placeholder="Password"            />          </div>          <div class="form-group p-2">            <label for="confpass" class="mb-2">Confirm Password</label>            <input              type="password"              class="form-control"              name="confpass"              id="confpass"              placeholder="Confirm Password"            />          </div>        </div>        <div class="action-btns mt-5 responsiv">          <a class="btn btn-outline-light responsiv">Sign Up</a>          <a routerLink="/login" class="verify responsiv">Have An Account?</a>        </div>      </form>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChangepassworsComponent', 'selector': 'app-changepasswors'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MoviesComponent', 'selector': 'app-movies'},{'name': 'MoviesreactsComponent', 'selector': 'app-moviesreacts'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingComponent', 'selector': 'app-rating'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'TwostepverificationComponent', 'selector': 'app-twostepverification'}];
+        var COMPONENT_TEMPLATE = '<div><div class="custom-container h-100">  <div class="w-100">    <div class="form">      <form [formGroup]="registerForm" (ngSubmit)=\'onSubmit()\'>        <div class="info mb-4">          <span class="title">Register Now</span>          <p class="description mt-3">Enter Your Info For Registration Here</p>        </div>        <div class="input-fields">          <div class="form-group p-2">                      <label for="firstname" class="mb-2">First Name</label>            <input              type="text"              class="form-control"              id="firstname"              placeholder="First Name"              formControlName="firstName"            />            <div *ngIf="registerForm.controls[\'firstName\']?.invalid&& registerForm.controls[\'firstName\']?.touched" class="text-danger mt-3" >              <p *ngIf="registerForm.get(\'firstName\')?.hasError(\'required\')">First Name is required</p>              <p *ngIf="registerForm.get(\'firstName\')?.hasError(\'maxlength\')">First Name must be at most 20 characters</p>            </div>                      </div>          <div class="form-group p-2">            <label for="lastname" class="mb-2">Last Name</label>            <input              type="text"              class="form-control"              formControlName="lastName"              id="lastname"              placeholder="Last Name"            />            <div class="text-danger mt-3" *ngIf="registerForm.controls[\'lastName\']?.invalid&& registerForm.controls[\'lastName\']?.touched" >              <p *ngIf="registerForm.get(\'lastName\')?.hasError(\'required\')">Last Name is required</p>              <p *ngIf="registerForm.get(\'lastName\')?.hasError(\'maxlength\')">Last Name must be at most 20 characters</p>                          </div>          </div>          <div class="form-group p-2">            <label for="email" class="mb-2">E-mail</label>            <input              type="email"              class="form-control"              formControlName="email"              id="email"              placeholder="Email"            />            <div class="text-danger mt-3" *ngIf="registerForm.controls[\'email\']?.invalid&& registerForm.controls[\'email\']?.touched" >              <p *ngIf="registerForm.get(\'email\')?.hasError(\'required\')">Email is required</p>              <p *ngIf="registerForm.get(\'email\')?.hasError(\'email\')">Invalid email format</p>                          </div>          </div>          <div class="form-group p-2">            <label for="pass" class="mb-2">Password</label>            <input              type="password"              class="form-control"              formControlName="password"              id="pass"              placeholder="Password"            />            <div class="text-danger mt-3" *ngIf="registerForm.controls[\'password\']?.invalid&& registerForm.controls[\'password\']?.touched">              <p *ngIf="registerForm.get(\'password\')?.hasError(\'required\')">Password is required</p>              <p *ngIf="registerForm.get(\'password\')?.hasError(\'pattern\')">                Password must follow the specified pattern:                 At least 8 characters with at least <br/> - one special character <br/> - one letter (uppercase or lowercase) <br/> - one digit              </p>                          </div>          </div>        </div>        <div class="action-btns mt-3 responsiv">          <button type="button" class="btn btn-outline-light responsiv" type="submit" [disabled]="registerForm.invalid" >Sign Up</button>          <a routerLink="/login" class="verify responsiv">Have An Account?</a>        </div>      </form>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChangepassworsComponent', 'selector': 'app-changepasswors'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MoviesComponent', 'selector': 'app-movies'},{'name': 'MoviesreactsComponent', 'selector': 'app-moviesreacts'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingComponent', 'selector': 'app-rating'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'TopMoviesComponent', 'selector': 'app-top-movies'},{'name': 'TopTvComponent', 'selector': 'app-top-tv'},{'name': 'TwostepverificationComponent', 'selector': 'app-twostepverification'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'RegisterComponent'};
 </script>

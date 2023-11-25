@@ -1,0 +1,94 @@
+<ng-container *ngIf="spinner; else loading">
+    <app-spinner></app-spinner>
+  </ng-container>
+  
+  <ng-template #loading>
+    <div class="fluid p-3">
+      <h1 class="animated-heading text-center text-light mb-4">
+        Search (<span class="text-danger">{{searchQuery}}</span>)
+      </h1>
+      <div class="row" *ngIf="searchMoviesArr.length > 0; else noMovies">
+        <div class="col-md-2">
+          <div class="text-container">
+            <div class="text-center">
+            <p>Don't close your eyes</p>
+            <p>To Watch Right Now</p>
+          </div>
+          </div>
+          <div class="mt-4 p-3">
+
+              <img  src="../../assets/tv.svg" alt="tv icon">
+          </div>
+        </div>
+        <div class="col-md-2 " *ngFor="let movie of searchMoviesArr">
+          <div
+            class="movie-card d-inline-block mb-4 rounded bg-dark text-light shadow-sm p-3"
+          >
+            <img
+              *ngIf="movie.poster_path !== null; else defaultImage"
+              [src]="baseImage + movie.poster_path"
+              class="w-100 mb-3 rounded"
+              alt="{{ movie.title }}"
+              height="300px !important"
+            />
+  
+            <ng-template #defaultImage>
+              <img
+                src="../../assets/defualtImage.jpg"
+                class="w-100 mb-3 rounded"
+                alt="{{ movie.title }}"
+                height="300px !important"
+              />
+            </ng-template>
+  
+            <h3
+              class="text-center my-3 movie-title"
+              role="button"
+              [routerLink]="['/show/details', movie.id ,'movie']"
+            >
+              <span class="title-text">{{ movie.title | slice : 0 : 12 }}</span>
+            </h3>
+            <p class="text-center movie-date">{{ movie.release_date ? movie.release_date : '2018-05-12' }}</p>
+            <div class="text-center">
+              <span
+                *ngIf="movie.vote_average == 0"
+                class="fa fa-star checked"
+              ></span>
+              <span
+                *ngIf="movie.vote_average >= 1"
+                class="fa fa-star checked"
+              ></span>
+              <span
+                *ngIf="movie.vote_average >= 2"
+                class="fa fa-star checked"
+              ></span>
+              <span
+                *ngIf="movie.vote_average >= 3"
+                class="fa fa-star checked"
+              ></span>
+              <span
+                *ngIf="movie.vote_average >= 4"
+                class="fa fa-star checked"
+              ></span>
+              <span
+                *ngIf="movie.vote_average >= 5"
+                class="fa fa-star checked"
+              ></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #noMovies>
+        <div class="text-center no-movies-container">
+          <p class="fw-bolder no-movies-message">No movies found</p>
+        </div>
+      </ng-template>
+      <ng-template *ngIf="error">
+        <div class="text-center no-movies-container">
+          <p class="fw-bolder no-movies-message">{{ error }}</p>
+        </div>
+      </ng-template>
+      
+    </div>
+  </ng-template>
+  

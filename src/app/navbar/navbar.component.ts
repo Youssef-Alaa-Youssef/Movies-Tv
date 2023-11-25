@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
   searchDone() {
     if (this.searchForm.valid) {
       this._Router.navigate([
-        '/search',
+        '/show/search',
         this.searchForm.controls['search'].value,
       ]);
     }

@@ -84,27 +84,32 @@ import { LoginComponent } from &#x27;./login/login.component&#x27;;
 import { RegisterComponent } from &#x27;./register/register.component&#x27;;
 import { ProfileComponent } from &#x27;./profile/profile.component&#x27;;
 import { DetailsComponent } from &#x27;./details/details.component&#x27;;
-import { SettingsComponent } from &#x27;./settings/settings.component&#x27;;
 import { NotificationsComponent } from &#x27;./notifications/notifications.component&#x27;;
 import { TwostepverificationComponent } from &#x27;./twostepverification/twostepverification.component&#x27;;
 import { MoviesComponent } from &#x27;./movies/movies.component&#x27;;
 import { ChangepassworsComponent } from &#x27;./changepasswors/changepasswors.component&#x27;;
 import { NotFoundComponent } from &#x27;./not-found/not-found.component&#x27;;
 import { RatingComponent } from &#x27;./rating/rating.component&#x27;;
+import { SearchComponent } from &#x27;./search/search.component&#x27;;
+import { AuthGuard } from &#x27;./auth.guard&#x27;;
+import { TopMoviesComponent } from &#x27;./top-movies/top-movies.component&#x27;;
+import { TopTvComponent } from &#x27;./top-tv/top-tv.component&#x27;;
 
 const routes: Routes &#x3D; [
   { path: &#x27;&#x27;, redirectTo: &#x27;/movies&#x27;, pathMatch: &#x27;full&#x27; },
   { path: &#x27;login&#x27;, component: LoginComponent },
+  { path: &#x27;profile&#x27;,canActivate:[AuthGuard], component: ProfileComponent },
   { path: &#x27;register&#x27;, component: RegisterComponent },
-  { path: &#x27;notify&#x27;, component: NotificationsComponent },
-  { path: &#x27;profile&#x27;, component: ProfileComponent },
+  { path: &#x27;top-movies&#x27;, component: TopMoviesComponent },
+  { path: &#x27;top-tv&#x27;, component: TopTvComponent },
+  { path: &#x27;notify&#x27;, canActivate:[AuthGuard], component: NotificationsComponent },
+  { path: &#x27;profile&#x27;,canActivate:[AuthGuard], component: ProfileComponent },
   { path: &#x27;movies&#x27;, component: MoviesComponent },
-  { path: &#x27;details/:id&#x27;, component: DetailsComponent },
-  { path: &#x27;rate&#x27;, component: RatingComponent },
-
-  { path: &#x27;settings&#x27;, component: SettingsComponent },
-  { path: &#x27;change-password&#x27;, component: ChangepassworsComponent },
-  { path: &#x27;two-step-verification&#x27;, component: TwostepverificationComponent },
+  { path: &#x27;details/:id/:type&#x27;,canActivate:[AuthGuard], component: DetailsComponent },
+  { path: &#x27;rate&#x27;,canActivate:[AuthGuard], component: RatingComponent },
+  { path: &#x27;search/:search&#x27;, component: SearchComponent },
+  { path: &#x27;change-password&#x27;, canActivate:[AuthGuard],component: ChangepassworsComponent },
+  { path: &#x27;two-step-verification&#x27;, canActivate:[AuthGuard],component: TwostepverificationComponent },
   { path: &#x27;**&#x27;, component: NotFoundComponent },
 ];
 

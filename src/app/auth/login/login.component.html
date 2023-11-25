@@ -1,0 +1,51 @@
+<div class="custom-container h-100">
+    <div class="w-100">
+      <div class="form">
+        <form class="form" [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+          <div class="info mb-4">
+            <span class="title">Login Now</span>
+            <p class="description mt-3">Enter Your Info For Login Now</p>
+          </div>
+          <div class="input-fields">
+            <div class="form-group p-2">
+              <label for="email" class="mb-2">E-mail</label>
+              <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+                id="email"
+                placeholder="Email"
+              />
+              <div class="text-danger mt-3" *ngIf="loginForm.controls['email']?.invalid&& loginForm.controls['email']?.touched" >
+                <p *ngIf="loginForm.get('email')?.hasError('required')">Email is required</p>
+                <p *ngIf="loginForm.get('email')?.hasError('email')">Invalid email format</p>
+              </div>
+            </div>
+            <div class="form-group p-2">
+              <label for="pass" class="mb-2">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                formControlName="password"
+                id="pass"
+                placeholder="Password"
+              />
+              <div class="text-danger mt-3" *ngIf="loginForm.controls['password']?.invalid&& loginForm.controls['password']?.touched">
+                <p *ngIf="loginForm.get('password')?.hasError('required')">Password is required</p>
+                <p *ngIf="loginForm.get('password')?.hasError('pattern')">
+                  Password must follow the specified pattern: 
+                  At least 8 characters with at least <br/> - one special character <br/> - one letter (uppercase or lowercase) <br/> - one digit
+                </p>
+              </div>
+            </div>
+
+          </div>
+          <div class="action-btns mt-5 responsiv">
+            <button class="btn btn-outline-light responsiv" type="submit" [disabled]="loginForm.invalid"> Login</button>
+            <a routerLink="/register" class="verify responsiv">Create an account ?</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
