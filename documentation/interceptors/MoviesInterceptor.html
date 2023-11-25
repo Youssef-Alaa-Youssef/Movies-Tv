@@ -28,7 +28,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content interceptor">
                    <div class="content-data">
 
 
@@ -38,9 +38,10 @@
 
 
 
+
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">Injectables</li>
-  <li class="breadcrumb-item" >TranslateService</li>
+  <li class="breadcrumb-item">Interceptors</li>
+  <li class="breadcrumb-item" >MoviesInterceptor</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -64,9 +65,8 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/translate.service.ts</code>
+            <code>src/movies.interceptor.ts</code>
         </p>
-
 
 
 
@@ -85,7 +85,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#switchLanguage" >switchLanguage</a>
+                                <a href="#intercept" >intercept</a>
                             </li>
                         </ul>
                     </td>
@@ -99,54 +99,6 @@
     </table>
 </section>
 
-            <section data-compodoc="block-constructor">
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(translate: <a href="../injectables/TranslateService.html" target="_self">TranslateService</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/translate.service.ts:6</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>translate</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/TranslateService.html" target="_self" >TranslateService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
             <section data-compodoc="block-methods">
     
@@ -157,24 +109,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="switchLanguage"></a>
+                    <a name="intercept"></a>
                     <span class="name">
-                        <span ><b>switchLanguage</b></span>
-                        <a href="#switchLanguage"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>intercept</b></span>
+                        <a href="#intercept"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>switchLanguage(language: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>intercept(request: HttpRequest<any>, next: HttpHandler)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="10"
-                                    class="link-to-prism">src/app/translate.service.ts:10</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="8"
+                                    class="link-to-prism">src/movies.interceptor.ts:8</a></div>
                         </td>
                     </tr>
 
@@ -195,9 +147,21 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>language</td>
+                                                <td>request</td>
                                             <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        <code>HttpRequest&lt;any&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>next</td>
+                                            <td>
+                                                        <code>HttpHandler</code>
                                             </td>
 
                                             <td>
@@ -210,7 +174,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                            <b>Returns : </b>    <code>Observable&lt;HttpEvent&lt;any&gt;&gt;</code>
 
                         </div>
                             <div class="io-description">
@@ -227,24 +191,26 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from &#x27;@angular/common/http&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { environment } from &#x27;../src/app/environment&#x27;;
 
-@Injectable({
-  providedIn: &#x27;root&#x27;
-})
-export class TranslateService {
+@Injectable()
+export class MoviesInterceptor implements HttpInterceptor {
+  intercept(request: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
+    const modifiedRequest &#x3D; request.clone({
+      setHeaders: {
+        Accept: &#x27;application/json&#x27;,
+        Authorization: &#x27;Bearer &#x27; + environment.apiToken,
+      }
+    });
 
-  constructor(private translate: TranslateService) {}
-
-  switchLanguage(language: string): void {
-    this.translate.switchLanguage(&#x27;en&#x27;)
-  }}
-
-
+    return next.handle(modifiedRequest);
+  }
+}
 </code></pre>
     </div>
-
 </div>
-
 
 
 
@@ -282,8 +248,8 @@ export class TranslateService {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'TranslateService.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interceptor';
+            var COMPODOC_CURRENT_PAGE_URL = 'MoviesInterceptor.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

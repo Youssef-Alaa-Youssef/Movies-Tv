@@ -470,7 +470,7 @@ export class NavbarComponent implements OnInit {
   searchDone() {
     if (this.searchForm.valid) {
       this._Router.navigate([
-        &#x27;/search&#x27;,
+        &#x27;/show/search&#x27;,
         this.searchForm.controls[&#x27;search&#x27;].value,
       ]);
     }
@@ -482,7 +482,7 @@ export class NavbarComponent implements OnInit {
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;nav class&#x3D;&quot;navbar navbar-expand-lg navbar-light bg-transparent mb-2&quot;&gt;
   &lt;div class&#x3D;&quot;container-fluid&quot;&gt;
-    &lt;a class&#x3D;&quot;navbar-brand&quot; routerLink&#x3D;&quot;movies&quot;&gt;Trending Movies&lt;/a&gt;
+    &lt;a class&#x3D;&quot;navbar-brand&quot; routerLink&#x3D;&quot;show/movies&quot;&gt;Trending Movies&lt;/a&gt;
     &lt;button
       class&#x3D;&quot;navbar-toggler bg-light&quot;
       type&#x3D;&quot;button&quot;
@@ -503,24 +503,24 @@ export class NavbarComponent implements OnInit {
           &lt;a
             class&#x3D;&quot;nav-link&quot;
             routerLinkActive&#x3D;&quot;active-hover&quot;
-            routerLink&#x3D;&quot;movies&quot;
+            routerLink&#x3D;&quot;show/movies&quot;
             *ngIf&#x3D;&quot;isLogin&quot;
             &gt;Movies&lt;/a
           &gt;
         &lt;/li&gt;
         &lt;li class&#x3D;&quot;nav-item&quot;&gt;
-          &lt;a class&#x3D;&quot;nav-link&quot; *ngIf&#x3D;&quot;isLogin&quot; routerLink&#x3D;&quot;top-movies&quot;
+          &lt;a class&#x3D;&quot;nav-link&quot; *ngIf&#x3D;&quot;isLogin&quot; routerLink&#x3D;&quot;show/top-movies&quot;
             &gt;Top Movies&lt;/a
           &gt;
         &lt;/li&gt;
         &lt;li class&#x3D;&quot;nav-item&quot;&gt;
-          &lt;a class&#x3D;&quot;nav-link&quot; *ngIf&#x3D;&quot;isLogin&quot; routerLink&#x3D;&quot;top-tv&quot;&gt;Top TV&lt;/a&gt;
+          &lt;a class&#x3D;&quot;nav-link&quot; *ngIf&#x3D;&quot;isLogin&quot; routerLink&#x3D;&quot;show/top-tv&quot;&gt;Top TV&lt;/a&gt;
         &lt;/li&gt;
         &lt;li class&#x3D;&quot;nav-item&quot;&gt;
-          &lt;a class&#x3D;&quot;nav-link&quot; *ngIf&#x3D;&quot;!isLogin&quot; routerLink&#x3D;&quot;login&quot;&gt;Login&lt;/a&gt;
+          &lt;a class&#x3D;&quot;nav-link&quot; *ngIf&#x3D;&quot;!isLogin&quot; routerLink&#x3D;&quot;auth/login&quot;&gt;Login&lt;/a&gt;
         &lt;/li&gt;
         &lt;li class&#x3D;&quot;nav-item&quot;&gt;
-          &lt;a class&#x3D;&quot;nav-link&quot; *ngIf&#x3D;&quot;!isLogin&quot; routerLink&#x3D;&quot;register&quot;
+          &lt;a class&#x3D;&quot;nav-link&quot; *ngIf&#x3D;&quot;!isLogin&quot; routerLink&#x3D;&quot;auth/register&quot;
             &gt;Register&lt;/a
           &gt;
         &lt;/li&gt;
@@ -639,8 +639,8 @@ export class NavbarComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><nav class="navbar navbar-expand-lg navbar-light bg-transparent mb-2">  <div class="container-fluid">    <a class="navbar-brand" routerLink="movies">Trending Movies</a>    <button      class="navbar-toggler bg-light"      type="button"      data-bs-toggle="collapse"      data-bs-target="#navbarScroll"      aria-controls="navbarScroll"      aria-expanded="false"      aria-label="Toggle navigation"    >      <span class="navbar-toggler-icon"></span>    </button>    <div class="collapse navbar-collapse" id="navbarScroll">      <ul        class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"        style="--bs-scroll-height: 100px"      >        <li class="nav-item">          <a            class="nav-link"            routerLinkActive="active-hover"            routerLink="movies"            *ngIf="isLogin"            >Movies</a          >        </li>        <li class="nav-item">          <a class="nav-link" *ngIf="isLogin" routerLink="top-movies"            >Top Movies</a          >        </li>        <li class="nav-item">          <a class="nav-link" *ngIf="isLogin" routerLink="top-tv">Top TV</a>        </li>        <li class="nav-item">          <a class="nav-link" *ngIf="!isLogin" routerLink="login">Login</a>        </li>        <li class="nav-item">          <a class="nav-link" *ngIf="!isLogin" routerLink="register"            >Register</a          >        </li>        <li class="nav-item">          <a            class="nav-link"            style="cursor: pointer"            *ngIf="isLogin"            (click)="logout()"            >LogOut</a          >        </li>      </ul>      <form class="d-flex" [formGroup]="searchForm" (ngSubmit)="searchDone()">        <input          class="form-control me-2"          type="search"          formControlName="search"          placeholder="Search"          aria-label="Search"        />        <button class="btn btn-outline-light" type="submit">Search</button>      </form>    </div>  </div></nav></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChangepassworsComponent', 'selector': 'app-changepasswors'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MoviesComponent', 'selector': 'app-movies'},{'name': 'MoviesreactsComponent', 'selector': 'app-moviesreacts'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingComponent', 'selector': 'app-rating'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'TopMoviesComponent', 'selector': 'app-top-movies'},{'name': 'TopTvComponent', 'selector': 'app-top-tv'},{'name': 'TwostepverificationComponent', 'selector': 'app-twostepverification'}];
+        var COMPONENT_TEMPLATE = '<div><nav class="navbar navbar-expand-lg navbar-light bg-transparent mb-2">  <div class="container-fluid">    <a class="navbar-brand" routerLink="show/movies">Trending Movies</a>    <button      class="navbar-toggler bg-light"      type="button"      data-bs-toggle="collapse"      data-bs-target="#navbarScroll"      aria-controls="navbarScroll"      aria-expanded="false"      aria-label="Toggle navigation"    >      <span class="navbar-toggler-icon"></span>    </button>    <div class="collapse navbar-collapse" id="navbarScroll">      <ul        class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"        style="--bs-scroll-height: 100px"      >        <li class="nav-item">          <a            class="nav-link"            routerLinkActive="active-hover"            routerLink="show/movies"            *ngIf="isLogin"            >Movies</a          >        </li>        <li class="nav-item">          <a class="nav-link" *ngIf="isLogin" routerLink="show/top-movies"            >Top Movies</a          >        </li>        <li class="nav-item">          <a class="nav-link" *ngIf="isLogin" routerLink="show/top-tv">Top TV</a>        </li>        <li class="nav-item">          <a class="nav-link" *ngIf="!isLogin" routerLink="auth/login">Login</a>        </li>        <li class="nav-item">          <a class="nav-link" *ngIf="!isLogin" routerLink="auth/register"            >Register</a          >        </li>        <li class="nav-item">          <a            class="nav-link"            style="cursor: pointer"            *ngIf="isLogin"            (click)="logout()"            >LogOut</a          >        </li>      </ul>      <form class="d-flex" [formGroup]="searchForm" (ngSubmit)="searchDone()">        <input          class="form-control me-2"          type="search"          formControlName="search"          placeholder="Search"          aria-label="Search"        />        <button class="btn btn-outline-light" type="submit">Search</button>      </form>    </div>  </div></nav></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChangepassworsComponent', 'selector': 'app-changepasswors'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MoviesComponent', 'selector': 'app-movies'},{'name': 'MoviesreactsComponent', 'selector': 'app-moviesreacts'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingComponent', 'selector': 'app-rating'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'TopMoviesComponent', 'selector': 'app-top-movies'},{'name': 'TopTvComponent', 'selector': 'app-top-tv'},{'name': 'TwostepverificationComponent', 'selector': 'app-twostepverification'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'NavbarComponent'};
 </script>

@@ -4,31 +4,75 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LikesDislikesService {
-  private movieLikes: Map<number, { likes: number, dislikes: number }> = new Map<number, { likes: number, dislikes: number }>(); 
+  private localStorageKey = 'likesDislikes';
+  private sessionStorageKey = 'likedItems';
+
+  private likesDislikes: Map<number, { likes: number, dislikes: number }> = new Map<number, { likes: number, dislikes: number }>();
 
   constructor() {
-    // Assume you have a movieId (replace 1 with the actual movieId)
-    const movieId = 1;
-    this.movieLikes.set(movieId, { likes: 10, dislikes: 10 });
+    const storedData = localStorage.getItem(this.localStorageKey);
+    if (storedData) {
+      this.likesDislikes = new Map(JSON.parse(storedData));
+    } else {
+      const movieId = 1;
+      this.likesDislikes.set(movieId, { likes: 10, dislikes: 10 });
+      this.saveToLocalStorage();
+    }
   }
 
+  private saveToLocalStorage(): void {
+    localStorage.setItem(this.localStorageKey, JSON.stringify(Array.from(this.likesDislikes.entries())));
+  }
   getLikes(movieId: number): number {
-    return this.movieLikes.get(movieId)?.likes || 0;
+    return this.likesDislikes.get(movieId)?.likes || 10;
   }
 
   getDislikes(movieId: number): number {
-    return this.movieLikes.get(movieId)?.dislikes || 0;
+    return this.likesDislikes.get(movieId)?.dislikes || 5;
+  }
+  private getLikedItems(): Set<number> {
+    const likedItemsStr = sessionStorage.getItem(this.sessionStorageKey);
+    return likedItemsStr ? new Set(JSON.parse(likedItemsStr)) : new Set<number>();
   }
 
-  addlike(movieId: number): number {
-    const currentLikes = this.getLikes(movieId);
-    this.movieLikes.set(movieId, { likes: currentLikes + 1, dislikes: this.getDislikes(movieId) });
-    return this.getLikes(movieId);
+  private saveLikedItems(likedItems: Set<number>): void {
+    sessionStorage.setItem(this.sessionStorageKey, JSON.stringify(Array.from(likedItems)));
+  }
+
+  private userAlreadyLiked(movieId: number): boolean {
+    const likedItems = this.getLikedItems();
+    return likedItems.has(movieId);
+  }
+
+  addLike(movieId: number): number {
+    if (!this.userAlreadyLiked(movieId)) {
+      const currentLikes = this.getLikes(movieId);
+      this.likesDislikes.set(movieId, { likes: currentLikes + 1, dislikes: this.getDislikes(movieId) });
+      this.saveToLocalStorage();
+
+      const likedItems = this.getLikedItems();
+      likedItems.add(movieId);
+      this.saveLikedItems(likedItems);
+
+      return this.getLikes(movieId);
+    } else {
+      return this.getLikes(movieId);
+    }
   }
 
   dislike(movieId: number): number {
-    const currentLikes = this.getLikes(movieId);
-    this.movieLikes.set(movieId, { likes: Math.max(0, currentLikes - 1), dislikes: this.getDislikes(movieId) });
-    return this.getLikes(movieId);
+    if (!this.userAlreadyLiked(movieId)) {
+      const currentLikes = this.getLikes(movieId);
+      this.likesDislikes.set(movieId, { likes: currentLikes, dislikes: Math.max(0, currentLikes - 1) });
+      this.saveToLocalStorage();
+
+      const likedItems = this.getLikedItems();
+      likedItems.add(movieId);
+      this.saveLikedItems(likedItems);
+
+      return this.getLikes(movieId);
+    } else {
+      return this.getLikes(movieId);
+    }
   }
 }

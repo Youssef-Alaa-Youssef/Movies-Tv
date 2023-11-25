@@ -65,7 +65,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/login/login.component.ts</code>
+    <code>src/app/auth/login/login.component.ts</code>
 </p>
 
 
@@ -172,7 +172,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/login/login.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/auth/login/login.component.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -252,7 +252,7 @@
                     <tr>
                         <td class="col-md-4">
                             <div class="io-line">Defined in <a href="" data-line="21"
-                                    class="link-to-prism">src/app/login/login.component.ts:21</a></div>
+                                    class="link-to-prism">src/app/auth/login/login.component.ts:21</a></div>
                         </td>
                     </tr>
 
@@ -304,7 +304,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/login/login.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/auth/login/login.component.ts:12</a></div>
                         </td>
                     </tr>
 
@@ -320,7 +320,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
 import { FormControl, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
 import {Router} from &#x27;@angular/router&#x27;
-import { AuthService } from &#x27;../auth.service&#x27;;
+import { AuthService } from &#x27;../../auth.service&#x27;;
 AuthService
 @Component({
   selector: &#x27;app-login&#x27;,
@@ -341,7 +341,7 @@ constructor(private _router:Router,private _AuthService:AuthService){}
     if (this.loginForm.valid) {
       localStorage.setItem(&#x27;userToken&#x27;,&#x27;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c&#x27;)
       this._AuthService.getUserDate();
-      this._router.navigate([&#x27;/movies&#x27;])
+      this._router.navigate([&#x27;/show/movies&#x27;])
     } else {
       console.log(this.loginForm);
 
@@ -432,7 +432,7 @@ constructor(private _router:Router,private _AuthService:AuthService){}
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="custom-container h-100">    <div class="w-100">      <div class="form">        <form class="form" [formGroup]="loginForm" (ngSubmit)="loginSubmit()">          <div class="info mb-4">            <span class="title">Login Now</span>            <p class="description mt-3">Enter Your Info For Login Now</p>          </div>          <div class="input-fields">            <div class="form-group p-2">              <label for="email" class="mb-2">E-mail</label>              <input                type="email"                class="form-control"                formControlName="email"                id="email"                placeholder="Email"              />              <div class="text-danger mt-3" *ngIf="loginForm.controls[\'email\']?.invalid&& loginForm.controls[\'email\']?.touched" >                <p *ngIf="loginForm.get(\'email\')?.hasError(\'required\')">Email is required</p>                <p *ngIf="loginForm.get(\'email\')?.hasError(\'email\')">Invalid email format</p>              </div>            </div>            <div class="form-group p-2">              <label for="pass" class="mb-2">Password</label>              <input                type="password"                class="form-control"                formControlName="password"                id="pass"                placeholder="Password"              />              <div class="text-danger mt-3" *ngIf="loginForm.controls[\'password\']?.invalid&& loginForm.controls[\'password\']?.touched">                <p *ngIf="loginForm.get(\'password\')?.hasError(\'required\')">Password is required</p>                <p *ngIf="loginForm.get(\'password\')?.hasError(\'pattern\')">                  Password must follow the specified pattern:                   At least 8 characters with at least <br/> - one special character <br/> - one letter (uppercase or lowercase) <br/> - one digit                </p>              </div>            </div>          </div>          <div class="action-btns mt-5 responsiv">            <button class="btn btn-outline-light responsiv" type="submit" [disabled]="loginForm.invalid"> Login</button>            <a routerLink="/register" class="verify responsiv">Create an account ?</a>          </div>        </form>      </div>    </div>  </div>  </div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChangepassworsComponent', 'selector': 'app-changepasswors'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MoviesComponent', 'selector': 'app-movies'},{'name': 'MoviesreactsComponent', 'selector': 'app-moviesreacts'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingComponent', 'selector': 'app-rating'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'TopMoviesComponent', 'selector': 'app-top-movies'},{'name': 'TopTvComponent', 'selector': 'app-top-tv'},{'name': 'TwostepverificationComponent', 'selector': 'app-twostepverification'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChangepassworsComponent', 'selector': 'app-changepasswors'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MoviesComponent', 'selector': 'app-movies'},{'name': 'MoviesreactsComponent', 'selector': 'app-moviesreacts'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingComponent', 'selector': 'app-rating'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'TopMoviesComponent', 'selector': 'app-top-movies'},{'name': 'TopTvComponent', 'selector': 'app-top-tv'},{'name': 'TwostepverificationComponent', 'selector': 'app-twostepverification'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
 </script>

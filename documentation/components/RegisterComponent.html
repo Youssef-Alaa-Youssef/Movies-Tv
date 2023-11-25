@@ -65,7 +65,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/register/register.component.ts</code>
+    <code>src/app/auth/register/register.component.ts</code>
 </p>
 
 
@@ -172,7 +172,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/register/register.component.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/auth/register/register.component.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -240,7 +240,7 @@
                     <tr>
                         <td class="col-md-4">
                             <div class="io-line">Defined in <a href="" data-line="29"
-                                    class="link-to-prism">src/app/register/register.component.ts:29</a></div>
+                                    class="link-to-prism">src/app/auth/register/register.component.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -300,7 +300,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/register/register.component.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/auth/register/register.component.ts:11</a></div>
                         </td>
                     </tr>
 
@@ -462,7 +462,7 @@ export class RegisterComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="custom-container h-100">  <div class="w-100">    <div class="form">      <form [formGroup]="registerForm" (ngSubmit)=\'onSubmit()\'>        <div class="info mb-4">          <span class="title">Register Now</span>          <p class="description mt-3">Enter Your Info For Registration Here</p>        </div>        <div class="input-fields">          <div class="form-group p-2">                      <label for="firstname" class="mb-2">First Name</label>            <input              type="text"              class="form-control"              id="firstname"              placeholder="First Name"              formControlName="firstName"            />            <div *ngIf="registerForm.controls[\'firstName\']?.invalid&& registerForm.controls[\'firstName\']?.touched" class="text-danger mt-3" >              <p *ngIf="registerForm.get(\'firstName\')?.hasError(\'required\')">First Name is required</p>              <p *ngIf="registerForm.get(\'firstName\')?.hasError(\'maxlength\')">First Name must be at most 20 characters</p>            </div>                      </div>          <div class="form-group p-2">            <label for="lastname" class="mb-2">Last Name</label>            <input              type="text"              class="form-control"              formControlName="lastName"              id="lastname"              placeholder="Last Name"            />            <div class="text-danger mt-3" *ngIf="registerForm.controls[\'lastName\']?.invalid&& registerForm.controls[\'lastName\']?.touched" >              <p *ngIf="registerForm.get(\'lastName\')?.hasError(\'required\')">Last Name is required</p>              <p *ngIf="registerForm.get(\'lastName\')?.hasError(\'maxlength\')">Last Name must be at most 20 characters</p>                          </div>          </div>          <div class="form-group p-2">            <label for="email" class="mb-2">E-mail</label>            <input              type="email"              class="form-control"              formControlName="email"              id="email"              placeholder="Email"            />            <div class="text-danger mt-3" *ngIf="registerForm.controls[\'email\']?.invalid&& registerForm.controls[\'email\']?.touched" >              <p *ngIf="registerForm.get(\'email\')?.hasError(\'required\')">Email is required</p>              <p *ngIf="registerForm.get(\'email\')?.hasError(\'email\')">Invalid email format</p>                          </div>          </div>          <div class="form-group p-2">            <label for="pass" class="mb-2">Password</label>            <input              type="password"              class="form-control"              formControlName="password"              id="pass"              placeholder="Password"            />            <div class="text-danger mt-3" *ngIf="registerForm.controls[\'password\']?.invalid&& registerForm.controls[\'password\']?.touched">              <p *ngIf="registerForm.get(\'password\')?.hasError(\'required\')">Password is required</p>              <p *ngIf="registerForm.get(\'password\')?.hasError(\'pattern\')">                Password must follow the specified pattern:                 At least 8 characters with at least <br/> - one special character <br/> - one letter (uppercase or lowercase) <br/> - one digit              </p>                          </div>          </div>        </div>        <div class="action-btns mt-3 responsiv">          <button type="button" class="btn btn-outline-light responsiv" type="submit" [disabled]="registerForm.invalid" >Sign Up</button>          <a routerLink="/login" class="verify responsiv">Have An Account?</a>        </div>      </form>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChangepassworsComponent', 'selector': 'app-changepasswors'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MoviesComponent', 'selector': 'app-movies'},{'name': 'MoviesreactsComponent', 'selector': 'app-moviesreacts'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingComponent', 'selector': 'app-rating'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'TopMoviesComponent', 'selector': 'app-top-movies'},{'name': 'TopTvComponent', 'selector': 'app-top-tv'},{'name': 'TwostepverificationComponent', 'selector': 'app-twostepverification'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChangepassworsComponent', 'selector': 'app-changepasswors'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MoviesComponent', 'selector': 'app-movies'},{'name': 'MoviesreactsComponent', 'selector': 'app-moviesreacts'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingComponent', 'selector': 'app-rating'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'TopMoviesComponent', 'selector': 'app-top-movies'},{'name': 'TopTvComponent', 'selector': 'app-top-tv'},{'name': 'TwostepverificationComponent', 'selector': 'app-twostepverification'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'RegisterComponent'};
 </script>

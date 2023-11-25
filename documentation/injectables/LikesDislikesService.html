@@ -40,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li class="breadcrumb-item">Injectables</li>
-  <li class="breadcrumb-item" >CoursesService</li>
+  <li class="breadcrumb-item" >LikesDislikesService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -64,7 +64,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/movies.service.ts</code>
+            <code>src/app/likes-dislikes.service.ts</code>
         </p>
 
 
@@ -84,7 +84,8 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#baseImage" >baseImage</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#movieLikes" >movieLikes</a>
                             </li>
                         </ul>
                     </td>
@@ -99,19 +100,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#displayMovies" >displayMovies</a>
+                                <a href="#addlike" >addlike</a>
                             </li>
                             <li>
-                                <a href="#displayTV" >displayTV</a>
+                                <a href="#dislike" >dislike</a>
                             </li>
                             <li>
-                                <a href="#getMovie" >getMovie</a>
+                                <a href="#getDislikes" >getDislikes</a>
                             </li>
                             <li>
-                                <a href="#moviesPagination" >moviesPagination</a>
-                            </li>
-                            <li>
-                                <a href="#seachMovie" >seachMovie</a>
+                                <a href="#getLikes" >getLikes</a>
                             </li>
                         </ul>
                     </td>
@@ -131,45 +129,15 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(_HttpClient: HttpClient)</code>
+<code>constructor()</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/movies.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/likes-dislikes.service.ts:7</a></div>
                             </td>
                         </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>_HttpClient</td>
-                                                  
-                                                        <td>
-                                                                    <code>HttpClient</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
             </tbody>
         </table>
 </section>
@@ -183,90 +151,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="displayMovies"></a>
+                    <a name="addlike"></a>
                     <span class="name">
-                        <span ><b>displayMovies</b></span>
-                        <a href="#displayMovies"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>addlike</b></span>
+                        <a href="#addlike"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>displayMovies()</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="13"
-                                    class="link-to-prism">src/app/movies.service.ts:13</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="displayTV"></a>
-                    <span class="name">
-                        <span ><b>displayTV</b></span>
-                        <a href="#displayTV"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>displayTV()</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="18"
-                                    class="link-to-prism">src/app/movies.service.ts:18</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getMovie"></a>
-                    <span class="name">
-                        <span ><b>getMovie</b></span>
-                        <a href="#getMovie"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getMovie(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>addlike(movieId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
@@ -274,7 +168,7 @@
                     <tr>
                         <td class="col-md-4">
                             <div class="io-line">Defined in <a href="" data-line="23"
-                                    class="link-to-prism">src/app/movies.service.ts:23</a></div>
+                                    class="link-to-prism">src/app/likes-dislikes.service.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -295,86 +189,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>id</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                        <tr>
-                                                <td>type</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
-
-                        </div>
-                            <div class="io-description">
-                                
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="moviesPagination"></a>
-                    <span class="name">
-                        <span ><b>moviesPagination</b></span>
-                        <a href="#moviesPagination"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>moviesPagination(page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="29"
-                                    class="link-to-prism">src/app/movies.service.ts:29</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>page</td>
+                                                <td>movieId</td>
                                             <td>
                                                             <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                             </td>
@@ -389,7 +204,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                         </div>
                             <div class="io-description">
@@ -403,24 +218,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="seachMovie"></a>
+                    <a name="dislike"></a>
                     <span class="name">
-                        <span ><b>seachMovie</b></span>
-                        <a href="#seachMovie"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>dislike</b></span>
+                        <a href="#dislike"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>seachMovie(search: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>dislike(movieId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="36"
-                                    class="link-to-prism">src/app/movies.service.ts:36</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">src/app/likes-dislikes.service.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -441,9 +256,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>search</td>
+                                                <td>movieId</td>
                                             <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                             </td>
 
                                             <td>
@@ -456,7 +271,141 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDislikes"></a>
+                    <span class="name">
+                        <span ><b>getDislikes</b></span>
+                        <a href="#getDislikes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDislikes(movieId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="19"
+                                    class="link-to-prism">src/app/likes-dislikes.service.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>movieId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getLikes"></a>
+                    <span class="name">
+                        <span ><b>getLikes</b></span>
+                        <a href="#getLikes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getLikes(movieId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="15"
+                                    class="link-to-prism">src/app/likes-dislikes.service.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>movieId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                         </div>
                             <div class="io-description">
@@ -476,27 +425,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="baseImage"></a>
+                    <a name="movieLikes"></a>
                     <span class="name">
-                        <span ><b>baseImage</b></span>
-                        <a href="#baseImage"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Private</span>
+                        <span ><b>movieLikes</b></span>
+                        <a href="#movieLikes"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <i>Type : </i>    <code>Map&lt;number | literal type&gt;</code>
 
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;https://image.tmdb.org/t/p/w500&#x27;</code>
+                        <i>Default value : </i><code>new Map&lt;number, { likes: number, dislikes: number }&gt;()</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/movies.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/likes-dislikes.service.ts:7</a></div>
                         </td>
                     </tr>
 
@@ -509,45 +459,38 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient } from &#x27;@angular/common/http&#x27;;
-import { Injectable } from &#x27;@angular/core&#x27;;
-import { Observable } from &#x27;rxjs&#x27;;
-import { environment } from &#x27;../app/environment&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+
 @Injectable({
-  providedIn: &#x27;root&#x27;,
+  providedIn: &#x27;root&#x27;
 })
-export class CoursesService {
-  baseImage: string &#x3D; &#x27;https://image.tmdb.org/t/p/w500&#x27;;
+export class LikesDislikesService {
+  private movieLikes: Map&lt;number, { likes: number, dislikes: number }&gt; &#x3D; new Map&lt;number, { likes: number, dislikes: number }&gt;(); 
 
-  constructor(private _HttpClient: HttpClient) {}
-
-  displayMovies(): Observable&lt;any&gt; {
-    return this._HttpClient.get(
-      &#x60;${environment.baseUrl}/movie/popular?api_key&#x3D;${environment.key}&#x27;&#x60;,
-    );
-  }
-  displayTV(): Observable&lt;any&gt; {
-    return this._HttpClient.get(
-      &#x60;${environment.baseUrl}/tv/popular?api_key&#x3D;${environment.key}&#x60;,
-    );
-  }
-  getMovie(id: string,type:string): Observable&lt;any&gt; {
-    return this._HttpClient.get(
-      &#x60;${environment.baseUrl}/${type}/${id}?api_key&#x3D;${environment.key}&#x60;,
-    );
+  constructor() {
+    // Assume you have a movieId (replace 1 with the actual movieId)
+    const movieId &#x3D; 1;
+    this.movieLikes.set(movieId, { likes: 10, dislikes: 10 });
   }
 
-  moviesPagination(page: number): Observable&lt;any&gt; {
-    page &#x3D; Math.max(page, 1);
-    return this._HttpClient.get(
-      &#x60;${environment.baseUrl}/movie/popular?page&#x3D;${page}&amp;api_key&#x3D;${environment.key}&#x60;,
-    );
+  getLikes(movieId: number): number {
+    return this.movieLikes.get(movieId)?.likes || 0;
   }
 
-  seachMovie(search: string): Observable&lt;any&gt; {
-    return this._HttpClient.get(
-      &#x60;${environment.baseUrl}/search/movie?api_key&#x3D;${environment.key}&amp;language&#x3D;en-US&amp;query&#x3D;${search}&#x60;,
-    );
+  getDislikes(movieId: number): number {
+    return this.movieLikes.get(movieId)?.dislikes || 0;
+  }
+
+  addlike(movieId: number): number {
+    const currentLikes &#x3D; this.getLikes(movieId);
+    this.movieLikes.set(movieId, { likes: currentLikes + 1, dislikes: this.getDislikes(movieId) });
+    return this.getLikes(movieId);
+  }
+
+  dislike(movieId: number): number {
+    const currentLikes &#x3D; this.getLikes(movieId);
+    this.movieLikes.set(movieId, { likes: Math.max(0, currentLikes - 1), dislikes: this.getDislikes(movieId) });
+    return this.getLikes(movieId);
   }
 }
 </code></pre>
@@ -593,7 +536,7 @@ export class CoursesService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'CoursesService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'LikesDislikesService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

@@ -35,7 +35,7 @@
 
 <ol class="breadcrumb">
     <li class="breadcrumb-item">Modules</li>
-    <li class="breadcrumb-item" >AppRoutingModule</li>
+    <li class="breadcrumb-item" >MoviesContentRoutingModule</li>
 </ol>
 
 
@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/app-routing.module.ts</code>
+            <code>src/app/movies-content/movies-content-routing.module.ts</code>
         </p>
 
 
@@ -80,20 +80,29 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
-import { NotFoundComponent } from &#x27;./not-found/not-found.component&#x27;;
+import { TopMoviesComponent } from &#x27;./top-movies/top-movies.component&#x27;;
+import { TopTvComponent } from &#x27;./top-tv/top-tv.component&#x27;;
+import { DetailsComponent } from &#x27;./details/details.component&#x27;;
+import { AuthGuard } from &#x27;../auth.guard&#x27;;
+import { RatingComponent } from &#x27;./rating/rating.component&#x27;;
+import { SearchComponent } from &#x27;./search/search.component&#x27;;
+import { MoviesComponent } from &#x27;./movies/movies.component&#x27;;
 
 const routes: Routes &#x3D; [
-  {path:&#x27;&#x27;,redirectTo:&#x27;show&#x27;,pathMatch:&#x27;full&#x27;},
-  { path: &#x27;auth&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./auth/auth.module&#x27;).then(m &#x3D;&gt; m.AuthModule)&quot; },
-  { path: &#x27;show&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./movies-content/movies-content.module&#x27;).then(m &#x3D;&gt; m.MoviesContentModule)&quot; },
-  { path: &#x27;**&#x27;, component: NotFoundComponent },
+  {path:&#x27;&#x27;,redirectTo:&#x27;movies&#x27;,pathMatch:&#x27;full&#x27;},
+  { path: &#x27;movies&#x27;, component: MoviesComponent },
+  { path: &#x27;top-movies&#x27;, component: TopMoviesComponent },
+  { path: &#x27;top-tv&#x27;, component: TopTvComponent },
+  { path: &#x27;details/:id/:type&#x27;,canActivate:[AuthGuard], component: DetailsComponent },
+  { path: &#x27;rate&#x27;,canActivate:[AuthGuard], component: RatingComponent },
+  { path: &#x27;search/:search&#x27;, component: SearchComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{useHash:true})],
-  exports: [RouterModule],
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class MoviesContentRoutingModule { }
 </code></pre>
     </div>
 </div>
@@ -140,7 +149,7 @@ export class AppRoutingModule {}
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
-            var COMPODOC_CURRENT_PAGE_URL = 'AppRoutingModule.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'MoviesContentRoutingModule.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

@@ -65,7 +65,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/search/search.component.ts</code>
+    <code>src/app/movies-content/search/search.component.ts</code>
 </p>
 
 
@@ -135,6 +135,9 @@
                                 <a href="#baseImage" >baseImage</a>
                             </li>
                             <li>
+                                <a href="#error" >error</a>
+                            </li>
+                            <li>
                                 <a href="#searchMoviesArr" >searchMoviesArr</a>
                             </li>
                             <li>
@@ -181,7 +184,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/search/search.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/movies-content/search/search.component.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -260,8 +263,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="22"
-                                    class="link-to-prism">src/app/search/search.component.ts:22</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="23"
+                                    class="link-to-prism">src/app/movies-content/search/search.component.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -307,7 +310,38 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/search/search.component.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/movies-content/search/search.component.ts:11</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="error"></a>
+                    <span class="name">
+                        <span ><b>error</b></span>
+                        <a href="#error"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/movies-content/search/search.component.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -338,7 +372,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/search/search.component.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/movies-content/search/search.component.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -369,7 +403,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/search/search.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/movies-content/search/search.component.ts:14</a></div>
                         </td>
                     </tr>
 
@@ -400,7 +434,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/search/search.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/movies-content/search/search.component.ts:12</a></div>
                         </td>
                     </tr>
 
@@ -415,7 +449,7 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
 import { ActivatedRoute } from &#x27;@angular/router&#x27;;
-import { CoursesService } from &#x27;../movies.service&#x27;;
+import { CoursesService } from &#x27;../../movies.service&#x27;;
 
 @Component({
   selector: &#x27;app-search&#x27;,
@@ -427,6 +461,7 @@ export class SearchComponent {
   spinner: boolean &#x3D; false;
   searchMoviesArr: any[] &#x3D; [];
   searchQuery: string &#x3D; &#x27;&#x27;
+  error:string&#x3D;&#x27;&#x27;;
   constructor(
     private _ActivatedRoute: ActivatedRoute,
     private _CoursesService: CoursesService
@@ -445,8 +480,8 @@ export class SearchComponent {
             this.searchMoviesArr &#x3D; movies.results;
             this.spinner &#x3D; false;
           },
-          (error) &#x3D;&gt; {
-            console.log(error);
+          (err) &#x3D;&gt; {
+            this.error &#x3D; err;
             this.spinner &#x3D; false; 
           }
         );
@@ -463,94 +498,70 @@ export class SearchComponent {
 
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;ng-container *ngIf&#x3D;&quot;spinner; else loading&quot;&gt;
-    &lt;app-spinner&gt;&lt;/app-spinner&gt;
-  &lt;/ng-container&gt;
-  
-  &lt;ng-template #loading&gt;
-    &lt;div class&#x3D;&quot;fluid p-3&quot;&gt;
-      &lt;h1 class&#x3D;&quot;animated-heading text-center text-light mb-4&quot;&gt;
-        Search (&lt;span class&#x3D;&quot;text-danger&quot;&gt;{{searchQuery}}&lt;/span&gt;)
-      &lt;/h1&gt;
-      &lt;div class&#x3D;&quot;row&quot; *ngIf&#x3D;&quot;searchMoviesArr.length &gt; 0; else noMovies&quot;&gt;
-        &lt;div class&#x3D;&quot;col-md-2&quot;&gt;
-          &lt;div class&#x3D;&quot;text-container&quot;&gt;
-            &lt;div class&#x3D;&quot;text-center&quot;&gt;
+  &lt;app-spinner&gt;&lt;/app-spinner&gt;
+&lt;/ng-container&gt;
+
+&lt;ng-template #loading&gt;
+  &lt;div class&#x3D;&quot;fluid p-3&quot;&gt;
+    &lt;h1 class&#x3D;&quot;animated-heading text-center text-light mb-4&quot;&gt;
+      Search (&lt;span class&#x3D;&quot;text-danger&quot;&gt;{{ searchQuery }}&lt;/span&gt;)
+    &lt;/h1&gt;
+
+    &lt;div class&#x3D;&quot;row&quot; *ngIf&#x3D;&quot;searchMoviesArr.length &gt; 0; else noMovies&quot;&gt;
+      &lt;div class&#x3D;&quot;col-md-2&quot;&gt;
+        &lt;div class&#x3D;&quot;text-container&quot;&gt;
+          &lt;div class&#x3D;&quot;text-center&quot;&gt;
             &lt;p&gt;Don&#x27;t close your eyes&lt;/p&gt;
             &lt;p&gt;To Watch Right Now&lt;/p&gt;
           &lt;/div&gt;
-          &lt;/div&gt;
-          &lt;div class&#x3D;&quot;mt-4 p-3&quot;&gt;
-
-              &lt;img  src&#x3D;&quot;../../assets/tv.svg&quot; alt&#x3D;&quot;tv icon&quot;&gt;
-          &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class&#x3D;&quot;col-md-2 &quot; *ngFor&#x3D;&quot;let movie of searchMoviesArr&quot;&gt;
-          &lt;div
-            class&#x3D;&quot;movie-card d-inline-block mb-4 rounded bg-dark text-light shadow-sm p-3&quot;
-          &gt;
-            &lt;img
-              *ngIf&#x3D;&quot;movie.poster_path !&#x3D;&#x3D; null; else defaultImage&quot;
-              [src]&#x3D;&quot;baseImage + movie.poster_path&quot;
-              class&#x3D;&quot;w-100 mb-3 rounded&quot;
-              alt&#x3D;&quot;{{ movie.title }}&quot;
-              height&#x3D;&quot;300px !important&quot;
-            /&gt;
-  
-            &lt;ng-template #defaultImage&gt;
-              &lt;img
-                src&#x3D;&quot;../../assets/defualtImage.jpg&quot;
-                class&#x3D;&quot;w-100 mb-3 rounded&quot;
-                alt&#x3D;&quot;{{ movie.title }}&quot;
-                height&#x3D;&quot;300px !important&quot;
-              /&gt;
-            &lt;/ng-template&gt;
-  
-            &lt;h3
-              class&#x3D;&quot;text-center my-3 movie-title&quot;
-              role&#x3D;&quot;button&quot;
-              [routerLink]&#x3D;&quot;[&#x27;/details&#x27;, movie.id ,&#x27;movie&#x27;]&quot;
-            &gt;
-              &lt;span class&#x3D;&quot;title-text&quot;&gt;{{ movie.title | slice : 0 : 12 }}&lt;/span&gt;
-            &lt;/h3&gt;
-            &lt;p class&#x3D;&quot;text-center movie-date&quot;&gt;{{ movie.release_date ? movie.release_date : &#x27;2018-05-12&#x27; }}&lt;/p&gt;
-            &lt;div class&#x3D;&quot;text-center&quot;&gt;
-              &lt;span
-                *ngIf&#x3D;&quot;movie.vote_average &#x3D;&#x3D; 0&quot;
-                class&#x3D;&quot;fa fa-star checked&quot;
-              &gt;&lt;/span&gt;
-              &lt;span
-                *ngIf&#x3D;&quot;movie.vote_average &gt;&#x3D; 1&quot;
-                class&#x3D;&quot;fa fa-star checked&quot;
-              &gt;&lt;/span&gt;
-              &lt;span
-                *ngIf&#x3D;&quot;movie.vote_average &gt;&#x3D; 2&quot;
-                class&#x3D;&quot;fa fa-star checked&quot;
-              &gt;&lt;/span&gt;
-              &lt;span
-                *ngIf&#x3D;&quot;movie.vote_average &gt;&#x3D; 3&quot;
-                class&#x3D;&quot;fa fa-star checked&quot;
-              &gt;&lt;/span&gt;
-              &lt;span
-                *ngIf&#x3D;&quot;movie.vote_average &gt;&#x3D; 4&quot;
-                class&#x3D;&quot;fa fa-star checked&quot;
-              &gt;&lt;/span&gt;
-              &lt;span
-                *ngIf&#x3D;&quot;movie.vote_average &gt;&#x3D; 5&quot;
-                class&#x3D;&quot;fa fa-star checked&quot;
-              &gt;&lt;/span&gt;
-            &lt;/div&gt;
+        &lt;div class&#x3D;&quot;mt-4 p-3&quot;&gt;
+          &lt;img src&#x3D;&quot;../../assets/tv.svg&quot; alt&#x3D;&quot;tv icon&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;col-md-2 &quot; *ngFor&#x3D;&quot;let movie of searchMoviesArr;&quot;&gt;
+        &lt;div class&#x3D;&quot;movie-card d-inline-block mb-4 rounded bg-dark text-light shadow-sm p-3&quot;&gt;
+          &lt;img *ngIf&#x3D;&quot;movie.poster_path !&#x3D;&#x3D; null; else defaultImage&quot; [src]&#x3D;&quot;baseImage + movie.poster_path&quot;
+            class&#x3D;&quot;w-100 mb-3 rounded&quot; alt&#x3D;&quot;{{ movie.title }}&quot; /&gt;
+          &lt;ng-template #defaultImage&gt;
+            &lt;img src&#x3D;&quot;../../assets/defualtImage.jpg&quot; class&#x3D;&quot;w-100 mb-3 rounded default-image&quot;
+              alt&#x3D;&quot;{{ movie.title }}&quot; /&gt;
+          &lt;/ng-template&gt;
+
+          &lt;h3 class&#x3D;&quot;text-center my-3 movie-title&quot; role&#x3D;&quot;button&quot;
+            [routerLink]&#x3D;&quot;[&#x27;/show/details&#x27;, movie.id ,&#x27;movie&#x27;]&quot;&gt;
+            &lt;span class&#x3D;&quot;title-text&quot;&gt;{{ movie.title | slice : 0 : 12 }}&lt;/span&gt;
+          &lt;/h3&gt;
+
+          &lt;p class&#x3D;&quot;text-center movie-date&quot;&gt;{{ movie.release_date ? movie.release_date : &#x27;2018-05-12&#x27; }}&lt;/p&gt;
+
+          &lt;div class&#x3D;&quot;text-center&quot;&gt;
+            &lt;span *ngIf&#x3D;&quot;movie.vote_average?.length &#x3D;&#x3D;&#x3D; 0&quot; class&#x3D;&quot;fa fa-star checked&quot;&gt;&lt;/span&gt;
+            &lt;span *ngIf&#x3D;&quot;movie.vote_average?.length &gt;&#x3D; 1&quot; class&#x3D;&quot;fa fa-star checked&quot;&gt;&lt;/span&gt;
+            &lt;span *ngIf&#x3D;&quot;movie.vote_average?.length &gt;&#x3D; 2&quot; class&#x3D;&quot;fa fa-star checked&quot;&gt;&lt;/span&gt;
+            &lt;span *ngIf&#x3D;&quot;movie.vote_average?.length &gt;&#x3D; 3&quot; class&#x3D;&quot;fa fa-star checked&quot;&gt;&lt;/span&gt;
+            &lt;span *ngIf&#x3D;&quot;movie.vote_average?.length &gt;&#x3D; 4&quot; class&#x3D;&quot;fa fa-star checked&quot;&gt;&lt;/span&gt;
+            &lt;span *ngIf&#x3D;&quot;movie.vote_average?.length &gt;&#x3D; 5&quot; class&#x3D;&quot;fa fa-star checked&quot;&gt;&lt;/span&gt;
           &lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-      &lt;ng-template #noMovies&gt;
-        &lt;div class&#x3D;&quot;text-center no-movies-container&quot;&gt;
-          &lt;p class&#x3D;&quot;fw-bolder no-movies-message&quot;&gt;No movies found&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/ng-template&gt;
-      
     &lt;/div&gt;
-  &lt;/ng-template&gt;
-  </code></pre>
+
+    &lt;ng-template #noMovies&gt;
+      &lt;div class&#x3D;&quot;text-center no-movies-container&quot;&gt;
+        &lt;p class&#x3D;&quot;fw-bolder no-movies-message&quot;&gt;No movies found&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/ng-template&gt;
+
+    &lt;ng-template *ngIf&#x3D;&quot;error&quot;&gt;
+      &lt;div class&#x3D;&quot;text-center no-movies-container&quot;&gt;
+        &lt;p class&#x3D;&quot;fw-bolder no-movies-message&quot;&gt;{{ error }}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/ng-template&gt;
+  &lt;/div&gt;
+&lt;/ng-template&gt;
+</code></pre>
     </div>
 
 
@@ -579,8 +590,8 @@ export class SearchComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ng-container *ngIf="spinner; else loading">    <app-spinner></app-spinner>  </ng-container>    <ng-template #loading>    <div class="fluid p-3">      <h1 class="animated-heading text-center text-light mb-4">        Search (<span class="text-danger">{{searchQuery}}</span>)      </h1>      <div class="row" *ngIf="searchMoviesArr.length > 0; else noMovies">        <div class="col-md-2">          <div class="text-container">            <div class="text-center">            <p>Don\'t close your eyes</p>            <p>To Watch Right Now</p>          </div>          </div>          <div class="mt-4 p-3">              <img  src="../../assets/tv.svg" alt="tv icon">          </div>        </div>        <div class="col-md-2 " *ngFor="let movie of searchMoviesArr">          <div            class="movie-card d-inline-block mb-4 rounded bg-dark text-light shadow-sm p-3"          >            <img              *ngIf="movie.poster_path !== null; else defaultImage"              [src]="baseImage + movie.poster_path"              class="w-100 mb-3 rounded"              alt="{{ movie.title }}"              height="300px !important"            />              <ng-template #defaultImage>              <img                src="../../assets/defualtImage.jpg"                class="w-100 mb-3 rounded"                alt="{{ movie.title }}"                height="300px !important"              />            </ng-template>              <h3              class="text-center my-3 movie-title"              role="button"              [routerLink]="[\'/details\', movie.id ,\'movie\']"            >              <span class="title-text">{{ movie.title | slice : 0 : 12 }}</span>            </h3>            <p class="text-center movie-date">{{ movie.release_date ? movie.release_date : \'2018-05-12\' }}</p>            <div class="text-center">              <span                *ngIf="movie.vote_average == 0"                class="fa fa-star checked"              ></span>              <span                *ngIf="movie.vote_average >= 1"                class="fa fa-star checked"              ></span>              <span                *ngIf="movie.vote_average >= 2"                class="fa fa-star checked"              ></span>              <span                *ngIf="movie.vote_average >= 3"                class="fa fa-star checked"              ></span>              <span                *ngIf="movie.vote_average >= 4"                class="fa fa-star checked"              ></span>              <span                *ngIf="movie.vote_average >= 5"                class="fa fa-star checked"              ></span>            </div>          </div>        </div>      </div>      <ng-template #noMovies>        <div class="text-center no-movies-container">          <p class="fw-bolder no-movies-message">No movies found</p>        </div>      </ng-template>          </div>  </ng-template>  </div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChangepassworsComponent', 'selector': 'app-changepasswors'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MoviesComponent', 'selector': 'app-movies'},{'name': 'MoviesreactsComponent', 'selector': 'app-moviesreacts'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingComponent', 'selector': 'app-rating'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'TopMoviesComponent', 'selector': 'app-top-movies'},{'name': 'TopTvComponent', 'selector': 'app-top-tv'},{'name': 'TwostepverificationComponent', 'selector': 'app-twostepverification'}];
+        var COMPONENT_TEMPLATE = '<div><ng-container *ngIf="spinner; else loading">  <app-spinner></app-spinner></ng-container><ng-template #loading>  <div class="fluid p-3">    <h1 class="animated-heading text-center text-light mb-4">      Search (<span class="text-danger">{{ searchQuery }}</span>)    </h1>    <div class="row" *ngIf="searchMoviesArr.length > 0; else noMovies">      <div class="col-md-2">        <div class="text-container">          <div class="text-center">            <p>Don\'t close your eyes</p>            <p>To Watch Right Now</p>          </div>        </div>        <div class="mt-4 p-3">          <img src="../../assets/tv.svg" alt="tv icon">        </div>      </div>      <div class="col-md-2 " *ngFor="let movie of searchMoviesArr;">        <div class="movie-card d-inline-block mb-4 rounded bg-dark text-light shadow-sm p-3">          <img *ngIf="movie.poster_path !== null; else defaultImage" [src]="baseImage + movie.poster_path"            class="w-100 mb-3 rounded" alt="{{ movie.title }}" />          <ng-template #defaultImage>            <img src="../../assets/defualtImage.jpg" class="w-100 mb-3 rounded default-image"              alt="{{ movie.title }}" />          </ng-template>          <h3 class="text-center my-3 movie-title" role="button"            [routerLink]="[\'/show/details\', movie.id ,\'movie\']">            <span class="title-text">{{ movie.title | slice : 0 : 12 }}</span>          </h3>          <p class="text-center movie-date">{{ movie.release_date ? movie.release_date : \'2018-05-12\' }}</p>          <div class="text-center">            <span *ngIf="movie.vote_average?.length === 0" class="fa fa-star checked"></span>            <span *ngIf="movie.vote_average?.length >= 1" class="fa fa-star checked"></span>            <span *ngIf="movie.vote_average?.length >= 2" class="fa fa-star checked"></span>            <span *ngIf="movie.vote_average?.length >= 3" class="fa fa-star checked"></span>            <span *ngIf="movie.vote_average?.length >= 4" class="fa fa-star checked"></span>            <span *ngIf="movie.vote_average?.length >= 5" class="fa fa-star checked"></span>          </div>        </div>      </div>    </div>    <ng-template #noMovies>      <div class="text-center no-movies-container">        <p class="fw-bolder no-movies-message">No movies found</p>      </div>    </ng-template>    <ng-template *ngIf="error">      <div class="text-center no-movies-container">        <p class="fw-bolder no-movies-message">{{ error }}</p>      </div>    </ng-template>  </div></ng-template></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChangepassworsComponent', 'selector': 'app-changepasswors'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MoviesComponent', 'selector': 'app-movies'},{'name': 'MoviesreactsComponent', 'selector': 'app-moviesreacts'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingComponent', 'selector': 'app-rating'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'TopMoviesComponent', 'selector': 'app-top-movies'},{'name': 'TopTvComponent', 'selector': 'app-top-tv'},{'name': 'TwostepverificationComponent', 'selector': 'app-twostepverification'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SearchComponent'};
 </script>

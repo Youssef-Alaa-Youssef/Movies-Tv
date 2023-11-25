@@ -35,7 +35,7 @@
 
 <ol class="breadcrumb">
     <li class="breadcrumb-item">Modules</li>
-    <li class="breadcrumb-item" >AppRoutingModule</li>
+    <li class="breadcrumb-item" >AuthRoutingModule</li>
 </ol>
 
 
@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/app-routing.module.ts</code>
+            <code>src/app/auth/auth-routing.module.ts</code>
         </p>
 
 
@@ -80,20 +80,27 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
-import { NotFoundComponent } from &#x27;./not-found/not-found.component&#x27;;
+import { RegisterComponent } from &#x27;./register/register.component&#x27;;
+import { LoginComponent } from &#x27;./login/login.component&#x27;;
+import { ProfileComponent } from &#x27;./profile/profile.component&#x27;;
+import { AuthGuard } from &#x27;../auth.guard&#x27;;
+import { TwostepverificationComponent } from &#x27;./twostepverification/twostepverification.component&#x27;;
+import { ChangepassworsComponent } from &#x27;./changepasswors/changepasswors.component&#x27;;
 
 const routes: Routes &#x3D; [
-  {path:&#x27;&#x27;,redirectTo:&#x27;show&#x27;,pathMatch:&#x27;full&#x27;},
-  { path: &#x27;auth&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./auth/auth.module&#x27;).then(m &#x3D;&gt; m.AuthModule)&quot; },
-  { path: &#x27;show&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./movies-content/movies-content.module&#x27;).then(m &#x3D;&gt; m.MoviesContentModule)&quot; },
-  { path: &#x27;**&#x27;, component: NotFoundComponent },
+  { path: &#x27;&#x27;, redirectTo: &#x27;/auth/login&#x27;, pathMatch: &#x27;full&#x27; },
+  { path: &#x27;login&#x27;, component: LoginComponent },
+  { path: &#x27;register&#x27;, component: RegisterComponent },
+  { path: &#x27;profile&#x27;, canActivate: [AuthGuard], component: ProfileComponent },
+  { path: &#x27;two-step-verification&#x27;, canActivate: [AuthGuard], component: TwostepverificationComponent },
+  { path: &#x27;change-password&#x27;, canActivate: [AuthGuard], component: ChangepassworsComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{useHash:true})],
-  exports: [RouterModule],
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AuthRoutingModule { }
 </code></pre>
     </div>
 </div>
@@ -140,7 +147,7 @@ export class AppRoutingModule {}
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
-            var COMPODOC_CURRENT_PAGE_URL = 'AppRoutingModule.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'AuthRoutingModule.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
