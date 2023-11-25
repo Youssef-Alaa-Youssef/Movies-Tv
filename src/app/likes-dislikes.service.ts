@@ -28,7 +28,7 @@ export class LikesDislikesService {
   }
 
   getDislikes(movieId: number): number {
-    return this.likesDislikes.get(movieId)?.dislikes || 5;
+    return this.likesDislikes.get(movieId)?.dislikes || 10;
   }
   private getLikedItems(): Set<number> {
     const likedItemsStr = sessionStorage.getItem(this.sessionStorageKey);
