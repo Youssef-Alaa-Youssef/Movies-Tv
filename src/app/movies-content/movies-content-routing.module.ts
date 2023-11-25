@@ -11,8 +11,8 @@ import { MoviesComponent } from './movies/movies.component';
 const routes: Routes = [
   {path:'',redirectTo:'movies',pathMatch:'full'},
   { path: 'movies', component: MoviesComponent },
-  { path: 'top-movies', component: TopMoviesComponent },
-  { path: 'top-tv', component: TopTvComponent },
+  { path: 'top-movies', canActivate:[AuthGuard],component: TopMoviesComponent },
+  { path: 'top-tv',canActivate:[AuthGuard], component: TopTvComponent },
   { path: 'details/:id/:type',canActivate:[AuthGuard], component: DetailsComponent },
   { path: 'rate',canActivate:[AuthGuard], component: RatingComponent },
   { path: 'search/:search', component: SearchComponent },
