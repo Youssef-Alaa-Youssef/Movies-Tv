@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
-import { NgToastModule } from 'ng-angular-popup';
 import { HttpClientModule ,HttpClient, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,7 +24,7 @@ export function createTranslateLoader(http: HttpClient) {
   providers:[
     { provide: HTTP_INTERCEPTORS, useClass: MoviesInterceptor, multi: true }
   ],
-  imports: [CommonModule, AppRoutingModule, BrowserModule,NgToastModule,HttpClientModule,ReactiveFormsModule,BrowserAnimationsModule],
+  imports: [CommonModule, AppRoutingModule, BrowserModule,HttpClientModule,ReactiveFormsModule,BrowserAnimationsModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -6,15 +6,17 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from '../auth.guard';
 import { TwostepverificationComponent } from './twostepverification/twostepverification.component';
 import { ChangepassworsComponent } from './changepasswors/changepasswors.component';
+import { AuthLoggedInGuard } from '../auth-logged-in.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'login', canActivate: [AuthLoggedInGuard], component: LoginComponent },
+  { path: 'register', canActivate: [AuthLoggedInGuard], component: RegisterComponent },
   { path: 'profile', canActivate: [AuthGuard], component: ProfileComponent },
   { path: 'two-step-verification', canActivate: [AuthGuard], component: TwostepverificationComponent },
   { path: 'change-password', canActivate: [AuthGuard], component: ChangepassworsComponent },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
